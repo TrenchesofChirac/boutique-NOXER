@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique NOXER</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;}
+body { background: #f8f9fa; color: #333; }
+header { background: #58706f; color: #fff; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
+header .logo { display: flex; align-items: center; }
+header .logo img { width: 60px; height: 60px; object-fit: contain; margin-right: 15px; }
+header h1 { font-weight: 700; font-size: 1.8rem; }
+nav { display: flex; justify-content: center; margin: 30px 0; gap: 15px; flex-wrap: wrap; }
+nav button { background: #fff; color: #1f2937; border: none; padding: 10px 25px; font-weight: 600; cursor: pointer; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+nav button:hover { background: #1f2937; color: #fff; }
+.shop-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 0 40px 50px 40px; max-width: 1300px; margin: auto; }
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 600px; /* hauteur uniforme */
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
+.slider { position: relative; width: 100%; height: 300px; overflow: hidden; }
+.slider img { width: 100%; height: 300px; object-fit: cover; transition: opacity 0.5s; position: absolute; top:0; left:0; }
+.product-info { padding: 20px; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.product-info h3 { margin-bottom: 10px; font-weight: 700; font-size: 1.3rem; color: #1f2937; }
+.product-info p { margin-bottom: 10px; color: #555; font-size: 0.95rem; min-height: 40px; }
+.price { font-weight: 700; font-size: 1.2rem; color: #2563eb; margin-bottom: 15px; }
+.size-selector { margin-bottom: 15px; }
+.size-selector label { margin: 0 5px; cursor: pointer; }
+.size-selector input { margin-right: 5px; }
+.product-info button { background: #2563eb; color: #fff; border: none; padding: 12px 25px; font-weight: 600; cursor: pointer; border-radius: 8px; transition: 0.3s; }
+.product-info button:hover { background: #1d4ed8; }
+footer { background: #1f2937; color: #fff; text-align: center; padding: 25px 20px; margin-top: 40px; }
+footer a { color: #2563eb; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+@media (max-width: 600px) { header { flex-direction: column; text-align: center; gap: 15px; } nav { flex-direction: column; gap: 10px; } }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/1334993357105004685/1413934806760161402/noxer-removebg-preview.png?ex=68bdbce7&is=68bc6b67&hm=2016967eeb888d34d4a40c7804b6074c6002cc801b81f817678e097955b09781&" alt="Logo Boutique">
+        <h1>Boutique NOXER</h1>
+    </div>
+</header>
+
+<nav>
+    <button onclick="filterCategory('all')">Tout</button>
+    <button onclick="filterCategory('homme')">Homme</button>
+    <button onclick="filterCategory('femme')">Femme</button>
+    <button onclick="filterCategory('accessoires')">Accessoires</button>
+</nav>
+
+<section class="shop-container" id="shop"></section>
+
+<footer>
+    &copy; 2025 Boutique NOXER | Rejoignez-nous sur <a href="https://discord.gg/kvsgTwbC" target="_blank">Discord</a>
+</footer>
+
+<script>
+const products = [
+    {name: "T-shirt Gris", category: "homme", price: "25€", description: "T-shirt confortable, coton bio, parfait pour tous les jours.", sizes: ["S","M","L","XL","2XL","3XL"], images: ["https://cdn.discordapp.com/attachments/1334993357105004685/1413918558899015720/Capture_decran_2025-09-06_180638.png?ex=68bdadc5&is=68bc5c45&hm=8f3192527f7811fab9651e644cfab9442ccaf81a6372f403703d32007a6964cf&","https://cdn.discordapp.com/attachments/1334993357105004685/1413918559259721728/Capture_decran_2025-09-06_180700.png?ex=68bdadc5&is=68bc5c45&hm=3761b18034498fd76e429c464ba0902026368c8d64c1589358937e593aa2e042&","https://cdn.discordapp.com/attachments/1334993357105004685/1413918559620300870/Capture_decran_2025-09-06_180715.png?ex=68bdadc5&is=68bc5c45&hm=f2209d2d337f031a8be86fa13b12d57b96c770b6e8bc9967496c4dc8de5b2215&"]},
+    {name: "Robe Rouge", category: "femme", price: "45€", description: "Robe élégante pour soirées et occasions spéciales.", sizes: ["XS","S","M","L","XL","L"], images: ["https://via.placeholder.com/300x300?text=Robe+Rouge+1","https://via.placeholder.com/300x300?text=Robe+Rouge+2"]},
+    {name: "T-shirt Japan", category: "accessoires", price: "15€", description: "Casquette tendance, réglable et confortable.", sizes: ["Unique"], images: ["https://cdn.discordapp.com/attachments/1334993357105004685/1413927863194882219/Y2k_logo_-_Y2k_logo.png?ex=68bdb670&is=68bc64f0&hm=68a64f5c860fca9f02a05e2c0e4703c5bc98655063e30800debf7fdf8d8da340&","https://via.placeholder.com/300x300?text=Casquette+2"]},
+    {name: "Casquette Street", category: "accessoires", price: "15€", description: "Casquette tendance, réglable et confortable.", sizes: ["Unique"], images: ["https://via.placeholder.com/300x300?text=Casquette+1","https://via.placeholder.com/300x300?text=Casquette+2"]}
+];
+
+const shop = document.getElementById("shop");
+
+function displayProducts(productsToDisplay) {
+    shop.innerHTML = "";
+    productsToDisplay.forEach((product, index) => {
+        const card = document.createElement("div");
+        card.classList.add("product-card");
+
+        // Slider HTML
+        let sliderHTML = `<div class="slider" id="slider-${index}">`;
+        product.images.forEach((img, i) => {
+            sliderHTML += `<img src="${img}" style="opacity:${i===0?1:0}">`;
+        });
+        sliderHTML += `</div>`;
+
+        // Taille HTML
+        let sizesHTML = `<div class="size-selector"><strong>Taille:</strong><br>`;
+        product.sizes.forEach((size,i) => {
+            sizesHTML += `<label><input type="radio" name="size-${index}" value="${size}" ${i===0?'checked':''}>${size}</label>`;
+        });
+        sizesHTML += `</div>`;
+
+        card.innerHTML = `
+            ${sliderHTML}
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <div class="price">${product.price}</div>
+                ${sizesHTML}
+                <button onclick="orderProduct('${product.name}', ${index})">Commander</button>
+            </div>
+        `;
+        shop.appendChild(card);
+
+        // Slider JS
+        let current = 0;
+        const imgs = card.querySelectorAll(".slider img");
+        setInterval(() => {
+            imgs[current].style.opacity = 0;
+            current = (current + 1) % imgs.length;
+            imgs[current].style.opacity = 1;
+        }, 3000);
+    });
+}
+
+function filterCategory(category) {
+    if(category === "all") displayProducts(products);
+    else displayProducts(products.filter(p => p.category === category));
+}
+
+function orderProduct(productName, index) {
+    const selectedSize = document.querySelector(`input[name="size-${index}"]:checked`).value;
+    window.open("https://discord.gg/kvsgTwbC", "_blank");
+    alert(`Vous allez commander : ${productName} (Taille: ${selectedSize}).\nRejoignez notre Discord pour finaliser votre achat !`);
+}
+
+displayProducts(products);
+</script>
+
+</body>
+</html>
