@@ -20,7 +20,7 @@ nav button:hover { background: #1f2937; color: #fff; }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 600px; /* hauteur uniforme */
+    min-height: 600px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
@@ -49,7 +49,7 @@ footer a:hover { text-decoration: underline; }
 
 <header>
     <div class="logo">
-        <img src="https://cdn.discordapp.com/attachments/1334993357105004685/1413934806760161402/noxer-removebg-preview.png?ex=68bdbce7&is=68bc6b67&hm=2016967eeb888d34d4a40c7804b6074c6002cc801b81f817678e097955b09781&" alt="Logo Boutique">
+        <img src="https://cdn.discordapp.com/attachments/1334993357105004685/1413914055365627924/077dadc2-8fd4-4116-9a87-d9a41333393b.png?ex=68bda994&is=68bc5814&hm=e8db4d2440b4b2791eb4fec9ea1f2d7ac02a7e46a9800195fc69354f17cbaede&" alt="Logo Boutique">
         <h1>Boutique NOXER</h1>
     </div>
 </header>
@@ -63,16 +63,74 @@ footer a:hover { text-decoration: underline; }
 
 <section class="shop-container" id="shop"></section>
 
+  <h4>mise à jour : 06/09/25</h4>
+
 <footer>
     &copy; 2025 Boutique NOXER | Rejoignez-nous sur <a href="https://discord.gg/kvsgTwbC" target="_blank">Discord</a>
 </footer>
 
 <script>
 const products = [
-    {name: "T-shirt Gris", category: "homme", price: "25€", description: "T-shirt confortable, coton bio, parfait pour tous les jours.", sizes: ["S","M","L","XL","2XL","3XL"], images: ["https://cdn.discordapp.com/attachments/1334993357105004685/1413918558899015720/Capture_decran_2025-09-06_180638.png?ex=68bdadc5&is=68bc5c45&hm=8f3192527f7811fab9651e644cfab9442ccaf81a6372f403703d32007a6964cf&","https://cdn.discordapp.com/attachments/1334993357105004685/1413918559259721728/Capture_decran_2025-09-06_180700.png?ex=68bdadc5&is=68bc5c45&hm=3761b18034498fd76e429c464ba0902026368c8d64c1589358937e593aa2e042&","https://cdn.discordapp.com/attachments/1334993357105004685/1413918559620300870/Capture_decran_2025-09-06_180715.png?ex=68bdadc5&is=68bc5c45&hm=f2209d2d337f031a8be86fa13b12d57b96c770b6e8bc9967496c4dc8de5b2215&"]},
-    {name: "T-shirt Humanity", category: "homme", price: "28€", description: "Robe élégante pour soirées et occasions spéciales.", sizes: ["XS","S","M","L","XL","L"], images: ["https://cdn.discordapp.com/attachments/1334993357105004685/1413962862774190090/image.png?ex=68bdd708&is=68bc8588&hm=a53692d260f52c5208f0c78f8fc0b01430db0b4133b12b1cde86a08ae6ec9fb8&","https://cdn.discordapp.com/attachments/1334993357105004685/1413968569523372042/image.png?ex=68bddc59&is=68bc8ad9&hm=6cfd2fa1f4fc27d0970bb8ce57614918163a89d42ad97290aead8276bf6d45dd&","https://cdn.discordapp.com/attachments/1334993357105004685/1413967164574007487/image.png?ex=68bddb0a&is=68bc898a&hm=7e99356e3eea339acfcfbe73025bf5322b3e7c8b45117bb8a066ee9458607d3e&"]},
-    {name: "T-shirt Japan", category: "accessoires", price: "15€", description: "Casquette tendance, réglable et confortable.", sizes: ["Unique"], images: ["https://cdn.discordapp.com/attachments/1334993357105004685/1413927863194882219/Y2k_logo_-_Y2k_logo.png?ex=68bdb670&is=68bc64f0&hm=68a64f5c860fca9f02a05e2c0e4703c5bc98655063e30800debf7fdf8d8da340&","https://via.placeholder.com/300x300?text=Casquette+2"]},
-    {name: "Casquette Street", category: "accessoires", price: "15€", description: "Casquette tendance, réglable et confortable.", sizes: ["Unique"], images: ["https://via.placeholder.com/300x300?text=Casquette+1","https://via.placeholder.com/300x300?text=Casquette+2"]}
+    {
+        name: "Every Challenge",
+        category: "homme",
+        description: "Un vêtement qui incarne la détermination et la force mentale. Avec son design sobre et puissant, ce pull rappelle qu’il ne faut jamais abandonner et toujours viser plus haut. Confectionné dans un tissu chaud et confortable, il est idéal pour affronter aussi bien les journées fraîches que les défis du quotidien.",
+        sizes: [
+            { size: "S", price: "33,99€" },
+            { size: "M", price: "34,99€" },
+            { size: "L", price: "36;99€" },
+            { size: "XL", price: "37,99€" }
+        ],
+        images: [
+            "https://cdn.discordapp.com/attachments/1334993357105004685/1413983010029703219/image.png?ex=68bde9cc&is=68bc984c&hm=f96a17f6ba3ee2c9d6e7bd831a9221029fb26807245375f5eb0f3ed853663a4c&",
+            "https://cdn.discordapp.com/attachments/1334993357105004685/1413983010453323888/image.png?ex=68bde9cc&is=68bc984c&hm=aae97e86b7172a37c423b344b3d59d490b71d3c8c447c715628e356ca3f2da52&",
+            "https://cdn.discordapp.com/attachments/1334993357105004685/1413983010889535598/image.png?ex=68bde9cc&is=68bc984c&hm=bab15d67d0c17a09540790832493bc605b245522dee2e118dc7b29efec561e28&",
+            "https://cdn.discordapp.com/attachments/1334993357105004685/1413983011288125440/image.png?ex=68bde9cc&is=68bc984c&hm=9d7b0b71d19f35faa7f1e7815ed6c27ad9df9023b9dc2600cf894e36c5d686e8&"
+        ]
+    },
+    {
+        name: "T-shirt Humanity",
+        category: "homme",
+        description: "Un style unique qui mélange élégance et authenticité. Ce t-shirt arbore un logo légèrement déchiré, apportant une touche urbaine et rebelle sans perdre en classe. Conçu dans un tissu doux et résistant, il garantit un confort optimal tout en affirmant ton identité.",
+        sizes: [
+            { size: "XS", price: "29,99€" },
+            { size: "S", price: "32,99€" },
+            { size: "M", price: "33,99€" },
+            { size: "L", price: "35,99€" },
+            { size: "XL", price: "37,99€" }
+        ],
+        images: [
+            "https://cdn.discordapp.com/attachments/1334993357105004685/1413962862774190090/image.png?ex=68bdd708&is=68bc8588&hm=a53692d260f52c5208f0c78f8fc0b01430db0b4133b12b1cde86a08ae6ec9fb8&",
+            "https://cdn.discordapp.com/attachments/1334993357105004685/1413967164574007487/image.png?ex=68bddb0a&is=68bc898a&hm=7e99356e3eea339acfcfbe73025bf5322b3e7c8b45117bb8a066ee9458607d3e&",
+            "https://cdn.discordapp.com/attachments/1334993357105004685/1413967856978100414/image.png?ex=68bddbaf&is=68bc8a2f&hm=c8b2b7715fb9d484213beb7a542921d215c0a2d9fe9c0e272c03283165cb9c7c&"
+        ]
+    },
+    {
+        name: "Casquette Street",
+        category: "accessoires",
+        description: "Casquette tendance, réglable et confortable.",
+        sizes: [
+            { size: "Unique", price: "15€" }
+        ],
+        images: [
+            "https://via.placeholder.com/300x300?text=Casquette+1",
+            "https://via.placeholder.com/300x300?text=Casquette+2"
+        ]
+    },
+    {
+        name: "Robe Femme Élégante",
+        category: "femme",
+        description: "Robe élégante pour soirées et événements spéciaux.",
+        sizes: [
+            { size: "S", price: "45€" },
+            { size: "M", price: "46€" },
+            { size: "L", price: "47€" }
+        ],
+        images: [
+            "https://via.placeholder.com/300x300?text=Robe+1",
+            "https://via.placeholder.com/300x300?text=Robe+2"
+        ]
+    }
 ];
 
 const shop = document.getElementById("shop");
@@ -92,8 +150,8 @@ function displayProducts(productsToDisplay) {
 
         // Taille HTML
         let sizesHTML = `<div class="size-selector"><strong>Taille:</strong><br>`;
-        product.sizes.forEach((size,i) => {
-            sizesHTML += `<label><input type="radio" name="size-${index}" value="${size}" ${i===0?'checked':''}>${size}</label>`;
+        product.sizes.forEach((s,i) => {
+            sizesHTML += `<label><input type="radio" name="size-${index}" value="${i}" ${i===0?'checked':''}>${s.size}</label>`;
         });
         sizesHTML += `</div>`;
 
@@ -102,7 +160,7 @@ function displayProducts(productsToDisplay) {
             <div class="product-info">
                 <h3>${product.name}</h3>
                 <p>${product.description}</p>
-                <div class="price">${product.price}</div>
+                <div class="price" id="price-${index}">${product.sizes[0].price}</div>
                 ${sizesHTML}
                 <button onclick="orderProduct('${product.name}', ${index})">Commander</button>
             </div>
@@ -117,6 +175,16 @@ function displayProducts(productsToDisplay) {
             current = (current + 1) % imgs.length;
             imgs[current].style.opacity = 1;
         }, 3000);
+
+        // Changement de prix selon la taille
+        const sizeInputs = card.querySelectorAll(`input[name="size-${index}"]`);
+        const priceEl = card.querySelector(`#price-${index}`);
+        sizeInputs.forEach(input => {
+            input.addEventListener("change", () => {
+                const selectedIndex = input.value;
+                priceEl.textContent = product.sizes[selectedIndex].price;
+            });
+        });
     });
 }
 
@@ -126,9 +194,11 @@ function filterCategory(category) {
 }
 
 function orderProduct(productName, index) {
-    const selectedSize = document.querySelector(`input[name="size-${index}"]:checked`).value;
+    const selectedIndex = document.querySelector(`input[name="size-${index}"]:checked`).value;
+    const selectedSize = products[index].sizes[selectedIndex].size;
+    const selectedPrice = products[index].sizes[selectedIndex].price;
     window.open("https://discord.gg/kvsgTwbC", "_blank");
-    alert(`Vous allez commander : ${productName} (Taille: ${selectedSize}).\nRejoignez notre Discord pour finaliser votre achat !`);
+    alert(`Vous allez commander : ${productName} (Taille: ${selectedSize}, Prix: ${selectedPrice}).\nRejoignez notre Discord pour finaliser votre achat !`);
 }
 
 displayProducts(products);
